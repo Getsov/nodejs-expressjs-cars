@@ -1,7 +1,7 @@
 <div class="cube">
   <img class="cube" src="/static/images/{{imageUrl}}" />
   <p class="name">{{name}}</p>
-  <p><span>Price:</span> {{price}}</p>
+  <p><span>Price:</span> {{#if price}}{{price}}{{else}}Free{{/if}}</p>
   <div class="btn-group">
     <a class="btn" href="/details/{{id}}">Details</a>
     <button class="btn more">Show more</button>

@@ -1,21 +1,21 @@
 module.exports = {
   get(req, res) {
-    res.render("create", { title: "Create Listing" });
+    res.render("createAccessory", { title: "Create Accessory" });
   },
   async post(req, res) {
-    const car = {
+    const accessory = {
       name: req.body.name,
       description: req.body.description,
       imageUrl: req.body.imageUrl || undefined,
       price: Number(req.body.price),
     };
-    console.log(car);
     try {
-      await req.storage.createCar(car);
+      await req.accessory.createAccessory(accessory);
       res.redirect("/");
     } catch (err) {
-      console.log("Error creating record", err);
-      res.redirect("/create");
+      console.log("Error creating accessory");
+      console.log(err.message);
+      res.redirect("/accessory");
     }
   },
 };

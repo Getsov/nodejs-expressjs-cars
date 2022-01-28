@@ -7,8 +7,17 @@
     <p><span>Price:</span> {{price}}</p>
     <div class="btn-group">
       <a class="btn" href="/">Back</a>
+      <a class="btn" href="/attach/{{id}}">Attach Accessory</a>
       <a class="btn" href="/edit/{{id}}">Edit</a>
       <a class="btn" href="/delete/{{id}}">Delete</a>
     </div>
   </div>
+    <h2>Accessories</h2>
+    <div class="accessories">
+      {{#each accessories}}
+      {{> accessory}}
+      {{else}}
+      <h3 class="italic">This car has no accessories yet...</h3>
+      {{/each}}
+    </div>
 {{/with}}

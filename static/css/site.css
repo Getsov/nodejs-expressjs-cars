@@ -4,7 +4,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  overflow: hidden;
+  position: relative;
+  /* overflow: hidden; */
 }
 
 header ul {
@@ -233,6 +234,20 @@ img#sadFaceImg {
 
 h2 {
   text-align: center;
+}
+
+.accessories .accessory {
+  display: inline-block;
+  background-color: #f3f3f2;
+  width: 20%;
+  padding: 1%;
+  margin: 1%;
+}
+
+.accessories,
+.italic {
+  text-align: center;
+  font-style: italic;
 }
 
 footer {
