@@ -8,8 +8,8 @@ module.exports = {
       description: req.body.description,
       imageUrl: req.body.imageUrl || undefined,
       price: Number(req.body.price),
+      owner: req.session.user.id,
     };
-    console.log(car);
     try {
       await req.storage.createCar(car);
       res.redirect("/");
