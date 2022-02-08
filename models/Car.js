@@ -5,9 +5,16 @@ const {
 } = require("mongoose");
 
 const carSchema = new Schema({
-  name: { type: String, required: true },
+  name: {
+    type: String,
+    minlength: [3, "Listing name must be at least 3 chars long"],
+  },
   description: { type: String, default: "test" },
-  imageUrl: { type: String, default: "noImage.png" },
+  imageUrl: {
+    type: String,
+    default: "noImage.png",
+    match: [/^https?:\/\//, "Image URL must be a valid URL"],
+  },
   price: { type: Number, required: true, min: 0 },
   accessories: { type: [ObjectId], default: [], ref: "Accessory" },
   isDeleted: { type: Boolean, default: false },

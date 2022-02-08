@@ -10,6 +10,17 @@ userSchema.methods.comparePassword = async function (password) {
   return await comparePassword(password, this.hashedPassword);
 };
 
+userSchema.index(
+  { username: 1 },
+  {
+    unique: true,
+    collation: {
+      locale: "en",
+      strength: 2,
+    },
+  }
+);
+
 userSchema.pre("save", async function (next) {
   if (this.isModified("hashedPassword")) {
     console.log("hashing new password");

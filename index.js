@@ -56,18 +56,14 @@ const editCar = require("./controllers/edit");
 const deleteCar = require("./controllers/delete");
 const accessory = require("./controllers/accessory");
 const attach = require("./controllers/attach");
-const {
-  registerGet,
-  registerPost,
-  loginGet,
-  loginPost,
-  logout,
-} = require("./controllers/auth");
+const authController = require("./controllers/auth");
 
 const carsService = require("./utils/cars");
 const accessoryService = require("./utils/accessory");
 const authService = require("./utils/auth");
 const { isLoggedIn } = require("./utils/services");
+
+const { body } = require("express-validator");
 
 start();
 
@@ -121,9 +117,8 @@ async function start() {
     .route("/attach/:id")
     .get(isLoggedIn(), attach.get)
     .post(isLoggedIn(), attach.post);
-  app.route("/register").get(registerGet).post(registerPost);
-  app.route("/login").get(loginGet).post(loginPost);
-  app.get("/logout", logout);
+  app.use(authController);
+
   app.all("*", notFound);
 
   app.listen(3001, () => console.log("Server started on port 3001"));

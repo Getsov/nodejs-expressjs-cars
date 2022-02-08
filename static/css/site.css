@@ -269,6 +269,19 @@ footer {
 .description p {
   margin: 10px;
 }
+#notifications {
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  width: 50%;
+  padding: 0.5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background: rgb(231, 118, 118);
+  color: white;
+  border-radius: 5px;
+}
 @media only screen and (max-width: 768px) {
   input[type="text"],
   input[type="number"],
